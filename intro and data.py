@@ -21,6 +21,7 @@ df['HL_PCT'] =(df['Adj. High']-df['Adj. Close'])/df['Adj. Close'] * 100
 
 df['PCT_change'] =(df['Adj. Close']-df['Adj. Open'])/df['Adj. Open'] * 100
 
+#           price               x                  x                    x
 df=df[['Adj. Close','HL_PCT','PCT_change','Adj. Volume']]
 
 forecast_col='Adj. Close'
@@ -34,7 +35,7 @@ df['label']=df[forecast_col].shift(-forecast_out)
 #print (df.head())
 #print (df.tail())
 
-x=np.array(df.drop(['label'], 1))
+x=np.array(df.drop(['label', 'Adj. Close'], 1))
 x=preprocessing.scale(x)
 x=x[:-forecast_out]
 x_lately=x[-forecast_out:]
