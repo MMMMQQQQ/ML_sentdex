@@ -52,7 +52,7 @@ def k_nearest_neighbors(data, predict, k=3):
 ##plt.show()
 
 accuracies=[]
-for i in range(5):
+for i in range(25):
     df=pd.read_csv("breast-cancer-wisconsin.data.txt")
     df.replace('?',-99999,inplace=True)
     df.drop(['id'],1,inplace=True)
